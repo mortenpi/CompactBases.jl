@@ -292,8 +292,8 @@ $$\begin{equation}
 \operator{L}B\vec{f} = B\vec{g}.
 \end{equation}$$
 
-The left-hand side is trivially in the space $\space{P}_{t,k}$,
-whereas is not necessary true for the right-hand side, i.e. the
+The right-hand side is trivially in the space $\space{P}_{t,k}$,
+whereas is not necessary true for the left-hand side, i.e. the
 functional $\operator{L}$ may take $f$ out of the space. We can
 project the equation into the space $\space{P}_{t,k}$ by
 left-multiplying by the projector $BB^H$:
