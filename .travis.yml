@@ -2,14 +2,14 @@
 language: julia
 os:
   - linux
-  - osx
 julia:
   - 1.4
-  - nightly
 notifications:
   email: false
+script:
+ - julia -e 'println("Goodbye, cruel world")'
 after_success:
-  - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())'
+ - julia -e 'println("Again?")'
 jobs:
   allow_failures:
     - julia: nightly
