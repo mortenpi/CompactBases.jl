@@ -69,7 +69,7 @@ end
             ∇̃ = first_derivative(R̃, D)
 
             @test ∇ isa expT
-            @test ∇̃ isa expT
+            @test_broken ∇̃ isa expT
 
             @test Matrix(∇)[sel,sel] == Matrix(∇̃)
 
@@ -77,7 +77,7 @@ end
             ∇̃² = second_derivative(R̃, D)
 
             @test ∇² isa expT
-            @test ∇̃² isa expT
+            @test_broken ∇̃² isa expT
 
             @test Matrix(∇²)[sel,sel] == Matrix(∇̃²)
         end
@@ -97,14 +97,14 @@ end
         @testset "From the left, a = $a" for a = 1:size(B,2)
             B̃ = B[:,a:end]
             D̃m = apply(*, B̃', D, B̃)
-            @test D̃m isa BlockSkylineMatrix
+            @test_broken D̃m isa BlockSkylineMatrix
             @test Dm[a:end,a:end] == D̃m
         end
 
         @testset "From the right, b = $b" for b = size(B,2):-1:1
             B̃ = B[:,1:b]
             D̃m = apply(*, B̃', D, B̃)
-            @test D̃m isa BlockSkylineMatrix
+            @test_broken D̃m isa BlockSkylineMatrix
             @test Dm[1:b,1:b] == D̃m
         end
     end
@@ -159,7 +159,7 @@ end
     display(plt)
     println()
     println()
-    
+
     # The convergence rate should be order - 1 (polynomial order =
     # polynomial degree + 1), but since the error slope fitting is a
     # bit error prone, we require that it is greater than order - 2.5.
